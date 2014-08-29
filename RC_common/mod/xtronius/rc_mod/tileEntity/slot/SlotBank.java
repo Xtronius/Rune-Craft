@@ -103,7 +103,7 @@ public class SlotBank extends Slot {
 
     public int getSlotStackLimit()
     {
-        return this.inventory.getInventoryStackLimit();
+        return Integer.MAX_VALUE;
     }
 
     public ItemStack decrStackSize(int par1)

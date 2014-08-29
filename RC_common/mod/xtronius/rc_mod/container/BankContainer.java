@@ -83,7 +83,7 @@ public class BankContainer extends Container
         }
     }
     
-    public InvBank getInv() { return this.getInv(); }
+    public InvBank getInv() { return this.invBank; }
 
     public void addCraftingToCrafters(ICrafting par1ICrafting) {
     	this.crafter = par1ICrafting;

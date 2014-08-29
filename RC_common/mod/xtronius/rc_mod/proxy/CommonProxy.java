@@ -6,16 +6,6 @@ import mod.xtronius.rc_mod.util.KeyBindings;
 import net.minecraft.nbt.NBTTagCompound;
 import cpw.mods.fml.relauncher.Side;
 
-
-/**
- * ExtraFoodsMod
- * 
- * CommonProxy
- * 
- * @author xtronius
- * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
- * 
- */
 public class CommonProxy {
 	
 	private static final HashMap<String, NBTTagCompound> extendedEntityData = new HashMap<String, NBTTagCompound>();

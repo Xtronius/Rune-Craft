@@ -139,51 +139,28 @@ public class ExtendedPlayer implements IExtendedEntityProperties
 
 					NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
 					int j = nbttagcompound1.getInteger("BankSlot");
-					System.out.println("This tag has a slot number of: " + j);
 					
 					if (j >= 0 && j < this.playerBankStorage.length) {
 						this.playerBankStorage[j] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
 					}
 					
 				}
-				
-				for(int f = 0; f < this.playerBankStorage.length; f++) {
-					System.out.println("ItemStack: " + this.playerBankStorage[f] + " Slot: " + f);
-				}
 					
-				for(int slotIndex = 0; slotIndex < this.playerBankStorage.length; slotIndex++) {
-					
-					ItemStack stack = this.playerBankStorage[slotIndex];
-					if(bank != null) {
-						if(stack != null) {
-							if(slotIndex < 468)
-								bank.invBank.setInventorySlotContents(0, slotIndex, stack);
-							if(slotIndex < (468 * 2))
-								bank.invBank.setInventorySlotContents(1, slotIndex, stack);
-							if(slotIndex < (468 * 3))
-								bank.invBank.setInventorySlotContents(2, slotIndex, stack);
-							if(slotIndex < (468 * 4))
-								bank.invBank.setInventorySlotContents(3, slotIndex, stack);
-							if(slotIndex < (468 * 5))
-								bank.invBank.setInventorySlotContents(4, slotIndex, stack);
-							if(slotIndex < (468 * 6))
-								bank.invBank.setInventorySlotContents(5, slotIndex, stack);
-							if(slotIndex < (468 * 7))
-								bank.invBank.setInventorySlotContents(6, slotIndex, stack);
-							if(slotIndex < (468 * 8))
-								bank.invBank.setInventorySlotContents(7, slotIndex, stack);
-							if(slotIndex < (468 * 9))
-								bank.invBank.setInventorySlotContents(8, slotIndex, stack);
+				if(bank != null) {
+					for(int i = 0; i < 9; i++) {
+						for(int slotIndex = 0; slotIndex < 468; slotIndex++) {
+
+							ItemStack stack = this.playerBankStorage[slotIndex + (i * 468)];
 							
-//							System.out.println(bank.invBank.getStackInSlot(slotIndex));
-							System.out.println("Setting Stack: " + this.playerBankStorage[slotIndex] + " To Slot: " + slotIndex);
+							if(stack != null) {
+								bank.invBank.setInventorySlotContents(i, slotIndex, stack);
+								this.playerBankStorage[slotIndex + (i * 468)] = null;
+								System.out.println("Setting Stack: " + this.playerBankStorage[slotIndex] + " To Slot: " + slotIndex);
+							}
 						}
 					}
 				}
 			}
-			for(int i = 0; i < this.playerBankStorage.length; i++)
-				this.playerBankStorage[i] = null;
-			this.saveNBTData(compound);
 		}
 	}
 	

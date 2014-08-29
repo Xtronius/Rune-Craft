@@ -139,7 +139,7 @@ public class InvBank implements IExtendedEntityProperties ,  IInventory {
     	this.getIndexedStackArray(bankItemStackIndex)[slotIndex] = stack;
     }
 
-    public int getInventoryStackLimit() { return 127; }
+    public int getInventoryStackLimit() { return Integer.MAX_VALUE; }
 
     public void onInventoryChanged() {}
 
@@ -148,23 +148,13 @@ public class InvBank implements IExtendedEntityProperties ,  IInventory {
     public boolean isItemValidForSlot(int par1, ItemStack par2ItemStack) { return true; }
 
    @Override
-   public void saveNBTData(NBTTagCompound compound) {
-	   for(int i = 0; i < 100; i++) {
-		   System.out.println("Saving");
-	   }
-   }
+   public void saveNBTData(NBTTagCompound compound) {}
 
    @Override
-   public void loadNBTData(NBTTagCompound compound) {
-	   for(int i = 0; i < 100; i++) {
-		   System.out.println("Saving");
-	   }
-   }
+   public void loadNBTData(NBTTagCompound compound) {}
 
    @Override
-   public void init(Entity entity, World world) {
-   
-   }
+   public void init(Entity entity, World world) {}
 
 	@Override
 	public String getInventoryName() { return this.getInvName(); }

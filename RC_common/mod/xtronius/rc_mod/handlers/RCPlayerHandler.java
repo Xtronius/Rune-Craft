@@ -24,9 +24,7 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 public class RCPlayerHandler {
 	
 	@SubscribeEvent
-	public void onEntityConstructing(EntityConstructing event) {
-		registerPlayer(event.entity);
-	}
+	public void onEntityConstructing(EntityConstructing event) { registerPlayer(event.entity); }
 	
 	@SubscribeEvent
 	public void onLivingDeathEvent(LivingDeathEvent event) {
@@ -38,7 +36,6 @@ public class RCPlayerHandler {
 	public void onEntityJoinWorld(EntityJoinWorldEvent event) {
 		loadData(event.entity);
 		sendDataPackets(event.entity);
-//		sendLogFirePacket(event.world);
 	}
 
 	private void registerPlayer(Entity entity) {
@@ -61,7 +58,6 @@ public class RCPlayerHandler {
 			if (playerData != null) {
 				((ExtendedPlayer)(entity.getExtendedProperties(ExtendedPlayer.EXT_PROP_NAME))).loadNBTData(playerData);
 			}
-			//TODO Sync the Server and the Client by using a method similar to this: ((ExtendedPlayer)(event.entity.getExtendedProperties(ExtendedPlayer.EXT_PROP_NAME))).syncExtendedProperties();
 		}
 	}
 	

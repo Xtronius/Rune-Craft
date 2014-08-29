@@ -153,9 +153,12 @@ public class GuiBank extends GuiContainer
             this.invBank.setCurrentTopRow(currentTopRow);
         	
         	this.currentScrollingProg = currentTopRow;
+        	updateTabIndex(this.invBank.currentSelectedTab);
        } 
-       if(this.isScrolling && !Mouse.isButtonDown(0))
+       if(this.isScrolling && !Mouse.isButtonDown(0)) {
+    	   updateTabIndex(this.invBank.currentSelectedTab);
         	this.isScrolling = false;
+       }
     }
     
     private GuiBank.BankTabButton getTab(int i) {
@@ -203,6 +206,7 @@ public class GuiBank extends GuiContainer
         	   GuiBank.BankTabButton guiTabButton = (BankTabButton) button;
         	   this.invBank.setCurrentSelectedTab(0);
         	   updateTabIndex(this.invBank.currentSelectedTab);
+        	   
         	   for(int i = 0; i < 9; i++){
         		   if(i == 0) {
         			   this.setActiveTab(guiTabButton, 0, true); 
